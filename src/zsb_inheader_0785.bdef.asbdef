@@ -1,0 +1,18 @@
+interface;
+
+define behavior for ZSB_inheader_0785 alias BHeader
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _Items { create; }
+}
+
+define behavior for ZSB_iITEMS_0785 alias BItems
+{
+  use update;
+  use delete;
+
+  use association _Header;
+}

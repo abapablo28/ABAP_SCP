@@ -1,0 +1,141 @@
+@Metadata.layer: #CORE
+
+
+@UI.headerInfo: {
+    typeName: 'Item',
+    typeNamePlural: 'Items',
+    typeImageUrl: 'https://www.itop.es/images/Blog/CRM/ordenes-venta.jpg',
+   
+    title: {
+        type: #STANDARD,
+        value: 'Id'
+   },
+    description: {
+        type: #STANDARD,
+        value: 'Id'
+    }
+}
+
+
+
+annotate entity ZSB_citems_0785
+    with 
+{
+
+@UI: {
+      facet : [
+               
+                 { id: 'Id',
+                 label : 'Items',
+                 type: #COLLECTION,
+                 position: 10},
+
+                    
+                     { id: 'Items',
+                 parentId: 'Id',
+                 label : 'Items',
+                 type: #FIELDGROUP_REFERENCE,
+                 targetQualifier: 'Id'}
+                     
+                  ],
+         
+                        
+                        
+                        
+           fieldGroup: [{ qualifier: '_Items',
+                          position: 10 }]
+                          
+                          
+            }
+
+
+Id;
+
+@UI: { 
+  lineItem: [{ position: 20, importance: #HIGH }],
+  selectionField: [{ position: 20 }],
+  fieldGroup: [{ qualifier: 'Id',
+                       position: 20 }]
+}
+IdItems;
+
+@UI: { 
+  lineItem: [{ position: 30, importance: #HIGH }],
+  selectionField: [{ position: 30 }],
+  fieldGroup: [{ qualifier: 'Id',
+                       position: 30 }]
+}
+Name;
+
+@UI: { 
+  lineItem: [{ position: 40, importance: #HIGH }],
+  fieldGroup: [{ qualifier: 'Id',
+                       position: 40 }]
+  
+}
+Descr;
+
+@UI: { 
+  lineItem: [{ position: 50, importance: #HIGH }],
+  fieldGroup: [{ qualifier: 'Id',
+                       position: 50 }]
+ 
+}
+Relea;
+
+@UI: { 
+  lineItem: [{ position: 60, importance: #HIGH }],
+  fieldGroup: [{ qualifier: 'Id',
+                       position: 60 }]
+  
+}
+Disco;
+
+@UI: { 
+  lineItem: [{ position: 70, importance: #HIGH }],
+  fieldGroup: [{ qualifier: 'Id',
+                       position: 70 }]
+  
+}
+Price;
+
+@UI: { 
+  lineItem: [{ position: 80, importance: #HIGH }],
+  fieldGroup: [{ qualifier: 'Id',
+                       position: 80 }]
+ 
+}
+Height;
+
+@UI: { 
+  lineItem: [{ position: 90, importance: #HIGH }],
+  fieldGroup: [{ qualifier: 'Id',
+                       position: 90 }]
+  
+}
+Width;
+
+@UI: { 
+  lineItem: [{ position: 100, importance: #HIGH }],
+  fieldGroup: [{ qualifier: 'Id',
+                       position: 100 }]
+ 
+}
+Depth;
+
+@UI: { 
+  lineItem: [{ position: 110, importance: #HIGH }],
+  fieldGroup: [{ qualifier: 'Id',
+                       position: 110 }]
+}
+Quant;
+
+@UI: { 
+  lineItem: [{ position: 120, importance: #HIGH }],
+  fieldGroup: [{ qualifier: 'Id',
+                       position: 120 }]
+}
+Unito;
+
+    
+}

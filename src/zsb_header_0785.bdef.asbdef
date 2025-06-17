@@ -1,0 +1,56 @@
+managed;
+strict ( 2 );
+
+define behavior for ZSB_header_0785 alias BHeader
+implementation in class zbp_sb_header_0785 unique
+persistent table zheader_0785
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) Id;
+  association _Items { create; }
+  mapping for zheader_0785
+    {
+      id          = Id;
+      email       = Email;
+      fname       = Fname;
+      lname       = Lname;
+      country     = Country;
+      creat       = Creat;
+      deliv       = Deliv;
+      orderstatus = Orderstatus;
+      imageurl    = Imageurl;
+    }
+}
+
+define behavior for ZSB_ITEMS_0785 alias BItems
+implementation in class zbp_sb_items_0785 unique
+persistent table zitems_0785
+lock dependent by _Header
+authorization dependent by _Header
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) Id, IdItems;
+  association _Header;
+  mapping for zitems_0785
+    {
+      Id      = id;
+      IdItems = id_items;
+      Name    = name;
+      Descr   = descr;
+      Relea   = relea;
+      Disco   = disco;
+      Price   = price;
+      Height  = heigh;
+      Width   = width;
+      Depth   = depth;
+      Quant   = quant;
+      Unito   = unito;
+    }
+}

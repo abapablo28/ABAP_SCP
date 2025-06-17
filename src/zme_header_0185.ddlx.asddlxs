@@ -1,0 +1,170 @@
+@Metadata.layer: #CORE
+
+@UI.headerInfo: {
+    typeName: 'Order',
+    typeNamePlural: 'Order Sales',
+    typeImageUrl: 'https://www.itop.es/images/Blog/CRM/ordenes-venta.jpg',
+    imageUrl: 'Imageurl',
+    title: {
+        type: #STANDARD,
+        value: 'Id'
+    },
+    description: {
+        type: #STANDARD,
+        value: 'Creat'
+    }
+}
+
+
+@Search.searchable: true
+
+
+annotate entity ZSB_cheader_0785
+    with 
+{
+
+
+
+@UI: {
+      facet : [
+               
+                 { id: 'Id',
+                 label : 'Order info',
+                 type: #COLLECTION,
+                 position: 10},
+//lo que vamos a moastrar
+                 { id: 'Items',
+                 parentId: 'Id',
+                 label : 'Order',
+                 type: #FIELDGROUP_REFERENCE,
+                 targetQualifier: 'Id'},
+                 
+                 { id: 'Idiems',
+                 label : 'Items',
+                 type: #LINEITEM_REFERENCE,
+                 targetElement: '_Items',
+                 position: 20}
+                 
+                 
+                 ],
+                 
+
+        fieldGroup: [{ qualifier: 'Id',
+                       position: 10 }]
+                       
+}
+@Search.defaultSearchElement: true
+@Search.fuzzinessThreshold: 0.9
+@Search.ranking: #HIGH
+
+@UI: { 
+  lineItem: [{ position: 10, importance: #HIGH }],
+  selectionField: [{ position: 10 }]
+}
+
+
+Id;
+@Search.defaultSearchElement: true
+@Search.fuzzinessThreshold: 0.9
+@Search.ranking: #HIGH
+
+@UI: { 
+  lineItem: [{ position: 20, importance: #HIGH }],
+  identification: [{ position: 20 }],
+  selectionField: [{ position: 20 }],
+   fieldGroup: [{ qualifier: 'Id',
+                       position: 20 }]
+}
+
+Email;
+
+
+@UI: { 
+  lineItem: [{ position: 30, importance: #HIGH }],
+  selectionField: [{ position: 30 }],
+  fieldGroup: [{ qualifier: 'Id',
+                       position: 30 }]
+}
+Fname;
+
+
+@UI: { 
+  lineItem: [{ position: 40, importance: #HIGH }],
+  selectionField: [{ position: 40 }],
+   fieldGroup: [{ qualifier: 'Id',
+                       position: 40 }]
+}
+Lname;
+
+@UI: { 
+  lineItem: [{ position: 50, importance: #HIGH }],
+  selectionField: [{ position: 50 }],
+   fieldGroup: [{ qualifier: 'Id',
+                       position: 50 }]
+}
+Country;
+
+@Search.defaultSearchElement: true
+@Search.fuzzinessThreshold: 0.9
+@Search.ranking: #HIGH
+@UI: { 
+  lineItem: [{ position: 60, importance: #HIGH }],
+  selectionField: [{ position: 60 }],
+   fieldGroup: [{ qualifier: 'Id',
+                       position: 60 }]
+}
+Creat;
+
+@UI: { 
+  lineItem: [{ position: 70, importance: #HIGH }],
+  selectionField: [{ position: 70 }],
+   fieldGroup: [{ qualifier: 'Id',
+                       position: 70 }]
+}
+Deliv;
+
+
+@UI: { 
+  lineItem: [{ 
+    position: 80,
+    label: 'Orderstatus',
+    importance: #HIGH,
+    value: 'orderstatus',
+    criticality: 'orderstatus' 
+    
+  }]}
+  
+@Consumption.valueHelpDefinition: [{ entity:{ name: '',
+                                                element: 'Descripcion'} }]
+       @UI: { 
+ 
+  selectionField: [{ position: 80 }],
+   fieldGroup: [{ qualifier: 'Id',
+                       position: 80 }]
+}                                         
+                
+                                         
+orderstatus;
+
+@UI: { 
+  lineItem: [{ position: 90, importance: #HIGH }],
+   fieldGroup: [{ qualifier: 'Id',
+                       position: 90 }]
+}
+Imageurl;
+
+
+@UI.facet: [
+  {
+    id: 'Items',
+    parentId: 'SalesOrder',
+    type: #LINEITEM_REFERENCE,
+    targetElement: '_items',
+    position: 20
+  }
+]
+/* Associations */
+_Items;
+
+    
+}
