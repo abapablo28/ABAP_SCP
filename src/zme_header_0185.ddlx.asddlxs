@@ -3,7 +3,7 @@
 @UI.headerInfo: {
     typeName: 'Order',
     typeNamePlural: 'Order Sales',
-    typeImageUrl: 'https://www.itop.es/images/Blog/CRM/ordenes-venta.jpg',
+//    typeImageUrl: 'https://www.itop.es/images/Blog/CRM/ordenes-venta.jpg',
     imageUrl: 'Imageurl',
     title: {
         type: #STANDARD,
@@ -37,7 +37,8 @@ annotate entity ZSB_cheader_0785
                  parentId: 'Id',
                  label : 'Order',
                  type: #FIELDGROUP_REFERENCE,
-                 targetQualifier: 'Id'},
+                 targetQualifier: 'Id',
+                 position: 10},
                  
                  { id: 'Idiems',
                  label : 'Items',
@@ -57,6 +58,8 @@ annotate entity ZSB_cheader_0785
 @Search.fuzzinessThreshold: 0.9
 @Search.ranking: #HIGH
 
+@Consumption.valueHelpDefinition: [{ entity:{ name: 'ZSB_ID_0785',
+                                                element: 'Id'} }]
 @UI: { 
   lineItem: [{ position: 10, importance: #HIGH }],
   selectionField: [{ position: 10 }]
@@ -69,7 +72,7 @@ Id;
 @Search.ranking: #HIGH
 
 @UI: { 
-  lineItem: [{ position: 20, importance: #HIGH }],
+  lineItem: [{ position: 20, importance: #MEDIUM }],
   identification: [{ position: 20 }],
   selectionField: [{ position: 20 }],
    fieldGroup: [{ qualifier: 'Id',
@@ -80,7 +83,7 @@ Email;
 
 
 @UI: { 
-  lineItem: [{ position: 30, importance: #HIGH }],
+  lineItem: [{ position: 30, importance: #MEDIUM,  label:'FIRST NAME' }],
   selectionField: [{ position: 30 }],
   fieldGroup: [{ qualifier: 'Id',
                        position: 30 }]
@@ -89,7 +92,7 @@ Fname;
 
 
 @UI: { 
-  lineItem: [{ position: 40, importance: #HIGH }],
+  lineItem: [{ position: 40, importance: #MEDIUM, label: 'LAST NAME' }],
   selectionField: [{ position: 40 }],
    fieldGroup: [{ qualifier: 'Id',
                        position: 40 }]
@@ -97,8 +100,8 @@ Fname;
 Lname;
 
 @UI: { 
-  lineItem: [{ position: 50, importance: #HIGH }],
-  selectionField: [{ position: 50 }],
+  lineItem: [{ position: 50, importance: #MEDIUM, label: 'COUNTRY' }],
+  //selectionField: [{ position: 50 }],
    fieldGroup: [{ qualifier: 'Id',
                        position: 50 }]
 }
@@ -107,8 +110,11 @@ Country;
 @Search.defaultSearchElement: true
 @Search.fuzzinessThreshold: 0.9
 @Search.ranking: #HIGH
+
+@Consumption.valueHelpDefinition: [{ entity:{ name: 'ZSB_VALUE_0785',
+                                                element: 'creat'} }]
 @UI: { 
-  lineItem: [{ position: 60, importance: #HIGH }],
+  lineItem: [{ position: 60, importance:#MEDIUM, label: 'CREATED ON' }],
   selectionField: [{ position: 60 }],
    fieldGroup: [{ qualifier: 'Id',
                        position: 60 }]
@@ -116,41 +122,55 @@ Country;
 Creat;
 
 @UI: { 
-  lineItem: [{ position: 70, importance: #HIGH }],
-  selectionField: [{ position: 70 }],
+  lineItem: [{ position: 70, importance: #MEDIUM, label: 'DELIVERY DATE' }],
+  //selectionField: [{ position: 70 }],
    fieldGroup: [{ qualifier: 'Id',
                        position: 70 }]
 }
 Deliv;
 
+@UI: { lineItem: [{ position: 80, label: 'ORDER STATUS', importance: #MEDIUM, criticality: 'Orderstatus'}],
+identification : [ { position: 80 } ],
+selectionField: [ { position: 80} ],
+fieldGroup: [{ qualifier: 'Id',
+                      position: 80 }],
+                      textArrangement: #TEXT_ONLY }
+                      
+                      
+Orderstatus;
 
-@UI: { 
-  lineItem: [{ 
-    position: 80,
-    label: 'Orderstatus',
-    importance: #HIGH,
-    value: 'orderstatus',
-    criticality: 'orderstatus' 
-    
-  }]}
+//@UI: { lineItem: [{ position: 80, label: 'ORDER STATUS', importance: #MEDIUM, criticality: 'Orderstatus'}],
+//identification : [ { position: 80 } ],
+//selectionField: [ { position: 80} ],
+//fieldGroup: [{ qualifier: 'Id',
+//                      position: 80 }],
+//textArrangement: #TEXT_ONLY }
+//
+//Orderstatus;
+
+//value: 'Text'
   
-@Consumption.valueHelpDefinition: [{ entity:{ name: '',
-                                                element: 'Descripcion'} }]
-       @UI: { 
- 
-  selectionField: [{ position: 80 }],
-   fieldGroup: [{ qualifier: 'Id',
-                       position: 80 }]
-}                                         
-                
-                                         
-orderstatus;
+    
 
-@UI: { 
-  lineItem: [{ position: 90, importance: #HIGH }],
-   fieldGroup: [{ qualifier: 'Id',
-                       position: 90 }]
-}
+ 
+//  
+//@Consumption.valueHelpDefinition: [{ entity:{ name: '',
+//                                                element: 'Descripcion'} }]
+//       @UI: { 
+//
+// selectionField: [{ position: 80 }],
+//  fieldGroup: [{ qualifier: 'Id',
+//                      position: 80 }]
+//}                                         
+                
+                                        
+
+
+  @UI: { lineItem: [{ position: 90, label: 'IMAGEN URL',
+                      importance: #MEDIUM }],
+                        fieldGroup: [{ qualifier: 'Id',
+                       position: 90 }],
+         identification: [{  position:  90, label: 'Imageurl' }]  }
 Imageurl;
 
 

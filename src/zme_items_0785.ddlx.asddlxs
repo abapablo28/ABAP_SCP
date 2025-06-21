@@ -4,7 +4,7 @@
 @UI.headerInfo: {
     typeName: 'Item',
     typeNamePlural: 'Items',
-    typeImageUrl: 'https://www.itop.es/images/Blog/CRM/ordenes-venta.jpg',
+    imageUrl: '_Header.Imageurl',
    
     title: {
         type: #STANDARD,

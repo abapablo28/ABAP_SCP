@@ -11,7 +11,11 @@ authorization master ( instance )
   create ( authorization : global );
   update;
   delete;
-  field ( readonly ) Id;
+  field (  mandatory: create, readonly : update  ) Id;
+  field (  mandatory: create ) email;
+
+
+
   association _Items { create; }
   mapping for zheader_0785
     {
@@ -22,7 +26,7 @@ authorization master ( instance )
       country     = Country;
       creat       = Creat;
       deliv       = Deliv;
-      orderstatus = Orderstatus;
+      Orderstatus = orderstatus;
       imageurl    = Imageurl;
     }
 }
@@ -36,7 +40,8 @@ authorization dependent by _Header
 {
   update;
   delete;
-  field ( readonly ) Id, IdItems;
+  field (  mandatory: create, readonly : update  ) Id;
+  field ( readonly ) IdItems;
   association _Header;
   mapping for zitems_0785
     {

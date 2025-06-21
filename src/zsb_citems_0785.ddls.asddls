@@ -1,4 +1,4 @@
-@AccessControl.authorizationCheck: #CHECK
+@AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'consumo items'
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
